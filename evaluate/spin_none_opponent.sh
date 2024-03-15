@@ -2,9 +2,9 @@
 exp_name='none_opponent'
 prefix='1'
 # ai2_arc 25   hellaswag 10   truthfulqa 0   winogrande 5   gsm8k 5   mmlu 5
-dataset='ai2_arc'
-num_fewshot=25
-epoch=1
+dataset='hellaswag'
+num_fewshot=10
+epoch=2
 gpu=1
 seed=0
 declare -A model_dict
@@ -16,7 +16,7 @@ if [ ! -d "${exp_name}" ]; then
     mkdir ${exp_name}
 fi
 while true; do
-    log_filename=${exp_name}/${prefix}_${dataset}_num_fewshot${num_fewshot}_gpu${gpu}_seed${seed}.log
+    log_filename=${exp_name}/${prefix}_${dataset}_epoch${epoch}_num_fewshot${num_fewshot}_gpu${gpu}_seed${seed}.log
     if [ ! -f "${log_filename}" ]; then
         break
     fi
